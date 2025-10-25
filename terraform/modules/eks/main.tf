@@ -9,7 +9,7 @@ resource "aws_security_group" "bastion_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["103.134.27.160/32"]   
+    cidr_blocks = ["0.0.0.0/0"]   
   }
 
   egress {
@@ -146,6 +146,12 @@ resource "aws_eks_node_group" "worker_node" {
   node_group_name = var.node_group_name
   node_role_arn   = aws_iam_role.worker_node_role.arn
   subnet_ids      = var.worker_node_subnet_ids
+
+  instance_types = ["m7i-flex.large"]  
+
+  remote_access {
+    ec2_ssh_key = "secondaccount"  
+  }
 
   scaling_config {
     desired_size = var.node_group_desired_size
