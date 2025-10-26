@@ -1,20 +1,21 @@
 plugin: aws_ec2
 regions:
-  - us-east-1
+- us-east-1
 
 filters:
   instance-state-name: running
   "tag:Name": "bastion-host"
 
 hostnames:
-  - tag:Name
+- tag:Name
 
 compose:
   ansible_host: public_ip_address
 
 # connection defaults
-defaults:
-  ansible_user: ubuntu
-  ansible_ssh_private_key_file: /home/mokchhedul/ostad.pem
+# defaults:
+#   ansible_user: ubuntu
+#   ansible_ssh_private_key_file: /home/mokchhedul/secondaccount.pem
+
 
 strict: False

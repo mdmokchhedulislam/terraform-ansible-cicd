@@ -98,14 +98,5 @@
       dest: /home/ubuntu/k8s/
       mode: '0644'
 
-  - name: Apply Mongo Deployment
-    become: no
-    ansible.builtin.shell: kubectl apply -f /home/ubuntu/k8s/mongo-deployment.yml
 
-  - name: Apply backend Deployment
-    become: no
-    ansible.builtin.shell: kubectl apply -f /home/ubuntu/k8s/backend-deployment.yml
-  - name: Apply frontend Deployment
-    become: no
-    ansible.builtin.shell: kubectl apply -f /home/ubuntu/k8s/frontend-deployment.yml
 

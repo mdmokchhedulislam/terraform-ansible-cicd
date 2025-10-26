@@ -1,2 +1,3 @@
 ansible_user: ubuntu
-ansible_ssh_private_key_file: mainaccount.pem
+ansible_ssh_private_key_file: /home/mokchhedul/secondaccount.pem
+
